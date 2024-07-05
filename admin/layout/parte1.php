@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+    <link rel="stylesheet" href="../../public/css/parte1.css">
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -129,8 +129,86 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active ">
+                            <i class="nav-icon fas"><i class="bi bi-gear"></i></i>
+                            <p>
+                                Configuraciones
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?=APP_URL;?>/admin/configuraciones" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Configurar</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-bookshelf"></i></i>
+                            <p>
+                                Niveles
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?=APP_URL;?>/admin/niveles" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Listado de niveles</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-bar-chart-steps"></i></i>
+                            <p>
+                                Grados
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?=APP_URL;?>/admin/grados" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Listado de grados</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-book-half"></i></i>
+                            <p>
+                                Materias
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?=APP_URL;?>/admin/materias" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Listado de materias</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
                     <li class="nav-item">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas"><i class="bi bi-bookmarks"></i></i>
@@ -149,6 +227,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas"><i class="bi bi-people-fill"></i></i>
+                            <p>
+                                Usuarios
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?=APP_URL;?>/admin/usuarios" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Listado de usuarios</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+
 
                     <li class="nav-item">
                         <a href="<?=APP_URL;?>/login/index.php" class="nav-link" style="background-color: #e73018; color: black">
@@ -162,6 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
+            
         </div>
         <!-- /.sidebar -->
     </aside>
