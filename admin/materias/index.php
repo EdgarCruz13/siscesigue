@@ -2,7 +2,7 @@
 include ('../../app/config.php');
 include ('../../admin/layout/parte1.php');
 
-include ('../../app/controllers/usuarios/listado_de_usuarios.php');
+include ('../../app/controllers/materias/listado_de_materias.php');
 
 ?>
 
@@ -12,7 +12,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
     <div class="content">
         <div class="container">
             <div class="row">
-                <h1>Listado de usuarios</h1>
+                <h1>Listado de materias</h1>
             </div>
             <br>
             <div class="row">
@@ -20,9 +20,9 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                 <div class="col-md-12">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Usuarios registrados</h3>
+                            <h3 class="card-title">Materias registrados</h3>
                             <div class="card-tools">
-                                <a href="create.php" class="btn btn-primary"><i class="bi bi-plus-square"></i> Crear nuevo usuario</a>
+                                <a href="create.php" class="btn btn-primary"><i class="bi bi-plus-square"></i> Crear nueva materia</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -30,37 +30,36 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                                 <thead>
                                 <tr>
                                     <th><center>Nro</center></th>
-                                    <th><center>Nombres del usuario</center></th>
-                                    <th><center>Rol</center></th>
-                                    <th><center>Email</center></th>
-                                    <th><center>Fecha de creación</center></th>
+                                    <th><center>Materia</center></th>
                                     <th><center>Estado</center></th>
                                     <th><center>Acciones</center></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $contador_usuarios = 0;
-                                foreach ($usuarios as $usuario){
-                                    $id_usuario = $usuario['id_usuario'];
-                                    $contador_usuarios = $contador_usuarios +1; ?>
+                                $contador_materias = 0;
+                                foreach ($materias as $materia){
+                                    $id_materia = $materia['id_materia'];
+                                    $contador_materias = $contador_materias +1; ?>
                                     <tr>
-                                        <td style="text-align: center"><?=$contador_usuarios;?></td>
-                                        <td><?=$usuario['nombres'];?></td>
-                                        <td><?=$usuario['nombre_rol'];?></td>
-                                        <td><?=$usuario['email'];?></td>
-                                        <td><?=$usuario['fyh_creacion'];?></td>
-                                        <td><?=$usuario['estado'];?></td>
+                                        <td style="text-align: center"><?=$contador_materias;?></td>
+                                        <td style="text-align: center;"><?=$materia['nombre_materia'];?></td>
+                                        <td style="text-align: center;">
+                                            <?php
+                                            if($materia['estado']=="1") echo "ACTIVO";
+                                            else echo "INACTIVO";
+                                            ?>
+                                        </td>
                                         <td style="text-align: center">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a href="show.php?id=<?=$id_usuario;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                <a href="edit.php?id=<?=$id_usuario;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
-                                                <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuario;?>(event)" method="post" id="miFormulario<?=$id_usuario;?>">
-                                                    <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
+                                                <a href="show.php?id=<?=$id_materia;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                                                <a href="edit.php?id=<?=$id_materia;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
+                                                <form action="<?=APP_URL;?>/app/controllers/materias/delete.php" onclick="preguntar<?=$id_materia;?>(event)" method="post" id="miFormulario<?=$id_materia;?>">
+                                                    <input type="text" name="id_materia" value="<?=$id_materia;?>" hidden>
                                                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash"></i></button>
                                                 </form>
                                                 <script>
-                                                    function preguntar<?=$id_usuario;?>(event) {
+                                                    function preguntar<?=$id_materia;?>(event) {
                                                         event.preventDefault();
                                                         Swal.fire({
                                                             title: 'Eliminar registro',
@@ -73,7 +72,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                                                             denyButtonText: 'Cancelar',
                                                         }).then((result) => {
                                                             if (result.isConfirmed) {
-                                                                var form = $('#miFormulario<?=$id_usuario;?>');
+                                                                var form = $('#miFormulario<?=$id_materia;?>');
                                                                 form.submit();
                                                             }
                                                         });
@@ -111,12 +110,12 @@ include ('../../layout/mensajes.php');
             "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
-                "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Materias",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Materias",
+                "infoFiltered": "(Filtrado de _MAX_ total Materias)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                "lengthMenu": "Mostrar _MENU_ Materias",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",
@@ -139,8 +138,13 @@ include ('../../layout/mensajes.php');
                 }, {
                     extend: 'pdf'
                 },{
+                    extend: 'csv'
+                },{
                     extend: 'excel'
-                },
+                },{
+                    text: 'Imprimir',
+                    extend: 'print'
+                }
                 ]
             },
                 {

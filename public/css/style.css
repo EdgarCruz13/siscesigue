@@ -1,0 +1,25 @@
+body {
+  font-family: "Arial", sans-serif;
+}
+.sidebar {
+  background-color: #f92a7a; /* Color de fondo del menú */
+  color: white; /* Color del texto */
+}
+.sidebar .nav-link {
+  color: white; /* Color del texto de los enlaces */
+}
+.sidebar .nav-link.active {
+  background-color: #e91e63; /* Color de fondo del enlace activo */
+}
+.sidebar .nav-link:hover {
+  background-color: #e91e63; /* Color de fondo al pasar el mouse */
+}
+.sidebar .nav-icon {
+  /* Aquí puedes agregar estilos para los iconos, 
+               por ejemplo, para usar Bootstrap Icons: */
+  font-family: "Bootstrap Icons";
+  font-weight: 900;
+}
+.sidebar .nav-item {
+  border-bottom: 1px solid #e91e63; /* Separador entre elementos */
+}
