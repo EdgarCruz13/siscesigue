@@ -2,9 +2,9 @@
 include ('../../app/config.php');
 include ('../../admin/layout/parte1.php');
 
-include ('../../app/controllers/materias/listado_de_materias.php');
-
+include ('../../app/controllers/administrativos/listado_de_administrativos.php');
 ?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -12,7 +12,7 @@ include ('../../app/controllers/materias/listado_de_materias.php');
     <div class="content">
         <div class="container">
             <div class="row">
-                <h1>Listado de materias</h1>
+                <h1>Listado del personal administrativo</h1>
             </div>
             <br>
             <div class="row">
@@ -20,9 +20,9 @@ include ('../../app/controllers/materias/listado_de_materias.php');
                 <div class="col-md-12">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Materias registrados</h3>
+                            <h3 class="card-title">Administrativos registrados</h3>
                             <div class="card-tools">
-                                <a href="create.php" class="btn btn-primary"><i class="bi bi-plus-square"></i> Crear nueva materia</a>
+                                <a href="create.php" class="btn btn-primary"><i class="bi bi-plus-square"></i> Crear nuevo Administrativos</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -30,50 +30,43 @@ include ('../../app/controllers/materias/listado_de_materias.php');
                                 <thead>
                                 <tr>
                                     <th><center>Nro</center></th>
-                                    <th><center>Clave</center></th>
-                                    <th><center>Nombre Materia CESIGUE</center></th>
-                                    <th><center>Nombre Materia SEP</center></th>
-                                    <th><center>Tipo de asignatura</center></th>
-                                    <th><center>Clave SEP</center></th>
-                                    <th><center>ID SEP</center></th>
-                                    <th><center>Creditos</center></th>
-                                    <th><center>Seriacion</center></th>
+                                    <th><center>Nombre del usuario</center></th>
+                                    <th><center>Rol</center></th>
+                                    <th><center>Email</center></th>
+                                    <th><center>Curp</center></th>
+                                    <th><center>Celular</center></th>
                                     <th><center>Estado</center></th>
                                     <th><center>Acciones</center></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $contador_materias = 0;
-                                foreach ($materias as $materia){
-                                    $id_materia = $materia['id_materia'];
-                                    $contador_materias = $contador_materias +1; ?>
+                                $contador_administrativos = 0;
+                                foreach ($administrativos as $administrativo){
+                                    $id_administrativo = $administrativo['id_administrativo'];
+                                    $contador_administrativos = $contador_administrativos +1; ?>
                                     <tr>
-                                        <td style="text-align: center"><?=$contador_materias;?></td>
-                                        <td style="text-align: center;"><?=$materia['claveMateria'];?></td>
-                                        <td style="text-align: center;"><?=$materia['nombre_materia'];?></td>
-                                        <td style="text-align: center;"><?=$materia['materiaNombreSEP'];?></td>
-                                        <td style="text-align: center;"><?=$materia['tipoAsignatura'];?></td>
-                                        <td style="text-align: center;"><?=$materia['claveSEP'];?></td>
-                                        <td style="text-align: center;"><?=$materia['idSEP'];?></td>
-                                        <td style="text-align: center;"><?=$materia['creditos'];?></td>
-                                        <td style="text-align: center;"><?=$materia['seriacion'];?></td>
-                                        <td style="text-align: center;">
+                                        <td style="text-align: center"><?=$contador_administrativos;?></td>
+                                        <td><?=$administrativo['nombre']." ".$administrativo['apellido_paterno']. " ".$administrativo['apellido_materno'];?></td>
+                                        <td><?=$administrativo['nombre_rol'];?></td>
+                                        <td><?=$administrativo['email'];?></td>
+                                        <td><?=$administrativo['curp'];?></td>
+                                        <td><?=$administrativo['celular'];?></td>
+                                        <td>
                                             <?php
-                                            if($materia['estado']=="1") echo "ACTIVO";
-                                            else echo "INACTIVO";
+                                            if($administrativo['estado'] == 1) echo "Activo"; else echo "Inactivo";
                                             ?>
                                         </td>
                                         <td style="text-align: center">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <a href="show.php?id=<?=$id_materia;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                <a href="edit.php?id=<?=$id_materia;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
-                                                <form action="<?=APP_URL;?>/app/controllers/materias/delete.php" onclick="preguntar<?=$id_materia;?>(event)" method="post" id="miFormulario<?=$id_materia;?>">
-                                                    <input type="text" name="id_materia" value="<?=$id_materia;?>" hidden>
+                                                <a href="show.php?id=<?=$id_administrativo;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                                                <a href="edit.php?id=<?=$id_administrativo;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
+                                                <!--<form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_administrativo;?>(event)" method="post" id="miFormulario<?=$id_administrativo;?>">
+                                                    <input type="text" name="id_usuario" value="<?=$id_administrativo;?>" hidden>
                                                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash"></i></button>
                                                 </form>
                                                 <script>
-                                                    function preguntar<?=$id_materia;?>(event) {
+                                                    function preguntar<?=$id_administrativo;?>(event) {
                                                         event.preventDefault();
                                                         Swal.fire({
                                                             title: 'Eliminar registro',
@@ -86,12 +79,13 @@ include ('../../app/controllers/materias/listado_de_materias.php');
                                                             denyButtonText: 'Cancelar',
                                                         }).then((result) => {
                                                             if (result.isConfirmed) {
-                                                                var form = $('#miFormulario<?=$id_materia;?>');
+                                                                var form = $('#miFormulario<?=$id_administrativo;?>');
                                                                 form.submit();
                                                             }
                                                         });
                                                     }
                                                 </script>
+                                                -->
                                             </div>
                                         </td>
                                     </tr>
@@ -124,12 +118,12 @@ include ('../../layout/mensajes.php');
             "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Materias",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Materias",
-                "infoFiltered": "(Filtrado de _MAX_ total Materias)",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Administrativos",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Administrativos",
+                "infoFiltered": "(Filtrado de _MAX_ total Administrativos)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Materias",
+                "lengthMenu": "Mostrar _MENU_ Administrativos",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",
@@ -152,13 +146,8 @@ include ('../../layout/mensajes.php');
                 }, {
                     extend: 'pdf'
                 },{
-                    extend: 'csv'
-                },{
                     extend: 'excel'
-                },{
-                    text: 'Imprimir',
-                    extend: 'print'
-                }
+                },
                 ]
             },
                 {

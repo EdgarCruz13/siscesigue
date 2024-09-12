@@ -25,8 +25,70 @@ include ('../../admin/layout/parte1.php');
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label for="">Clave Materia</label>
+                                            <input type="text" name="claveMateria" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                             <label for="">Materia</label>
                                             <input type="text" name="nombre_materia" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Nombre Materia SEP</label>
+                                            <input type="text" name="materiaNombreSEP" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Tipo de Asignatura</label>
+                                            <select name="tipoAsignatura" id="tipoAsignatura" class="form-control">
+                                                <option value="NO APLICA">NO APLICA</option>
+                                                <option value="OBLIGATORIA">OBLIGATORIA</option>
+                                                <option value="OPTATIVA">OPTATIVA</option>
+                                                <option value="ADICIONAL">ADICIONAL</option>
+                                                <option value="COMPLEMENTARIA">COMPLEMENTARIA</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Clave SEP</label>
+                                            <input type="text" name="claveSEP" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">ID SEP</label>
+                                            <input type="text" name="idSEP" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Creditos</label>
+                                            <input type="text" name="creditos" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Seriacion</label>
+                                            <input type="text" name="seriacion" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>

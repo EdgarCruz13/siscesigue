@@ -25,12 +25,67 @@ include ('../../app/controllers/materias/datos_materia.php');
                             <h3 class="card-title">Datos registrados</h3>
                         </div>
                         <div class="card-body">
-
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Clave Materia</label>
+                                            <p><?=$claveMateria;?></p>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="">Materia</label>
                                             <p><?=$nombre_materia;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Nombre Materia SEP</label>
+                                            <p><?=$materiaNombreSEP;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Tipo de Asignatura</label>
+                                            <p><?=$tipoAsignatura;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Clave SEP</label>
+                                            <p><?=$claveSEP;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">ID SEP</label>
+                                            <p><?=$idSEP;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Creditos</label>
+                                            <p><?=$creditos;?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Seriacion</label>
+                                            <p><?=$seriacion;?></p>
                                         </div>
                                     </div>
                                 </div>
