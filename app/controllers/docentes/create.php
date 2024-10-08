@@ -12,6 +12,8 @@ $fecha_nacimiento = $_POST['fecha_nacimiento'];
 $celular = $_POST['celular'];
 $profesion = $_POST['profesion'];
 $direccion = $_POST['direccion'];
+$especialidad = $_POST['especialidad'];
+$antiguedad = $_POST['antiguedad'];
 
 $pdo->beginTransaction();
 /////////////////////////////
@@ -54,22 +56,24 @@ $sentencia->execute();
 $id_persona = $pdo->lastInsertId();
 
 /////////////////////7
-///  INSERTAR A LA TABLA ADMINISTRATIVOS
-$sentencia = $pdo->prepare('INSERT INTO administrativos
-        ( persona_id, fyh_creacion, estado)
-VALUES ( :persona_id,:fyh_creacion,:estado)');
+///  INSERTAR A LA TABLA DOCENTES
+$sentencia = $pdo->prepare('INSERT INTO docentes
+        ( persona_id, especialidad, antiguedad, fyh_creacion, estado)
+VALUES ( :persona_id, :especialidad, :antiguedad, :fyh_creacion,:estado)');
 
 $sentencia->bindParam(':persona_id',$id_persona);
-$sentencia->bindParam('fyh_creacion',$fechaHora);
-$sentencia->bindParam('estado',$estado_de_registro);
+$sentencia->bindParam(':especialidad',$especialidad);
+$sentencia->bindParam(':antiguedad',$antiguedad);
+$sentencia->bindParam(':fyh_creacion',$fechaHora);
+$sentencia->bindParam(':estado',$estado_de_registro);
 
 if($sentencia->execute()){
     echo 'success';
     $pdo->commit();
     session_start();
-    $_SESSION['mensaje'] = "Se registro el personal administrativo de la manera correcta en la base de datos";
+    $_SESSION['mensaje'] = "Se registro al personal docente de la manera correcta en la base de datos";
     $_SESSION['icono'] = "success";
-    header('Location:'.APP_URL."/admin/administrativos");
+    header('Location:'.APP_URL."/admin/docentes");
 //header('Location:' .$URL.'/');
 }else{
     echo 'error al registrar a la base de datos';
